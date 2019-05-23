@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.google.zxing.Result;
 
@@ -39,6 +40,7 @@ public class QRCodeScanActivity extends Activity implements ZXingScannerView.Res
         // Do something with the result here
         Log.v(TAG, rawResult.getText()); // Prints scan results
         Log.v(TAG, rawResult.getBarcodeFormat().toString()); // Prints the scan format (qrcode, pdf417 etc.)
+        Toast.makeText(this, rawResult.getBarcodeFormat().toString(), Toast.LENGTH_SHORT).show();
 
         // If you would like to resume scanning, call this method below:
         mScannerView.resumeCameraPreview(this);
